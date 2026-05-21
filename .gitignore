@@ -1,0 +1,11 @@
+bin/
+/edict
+vendor/
+*.test
+*.out
+.idea/
+.vscode/
+.DS_Store
+*.swp
+.env
+config.local.yaml
