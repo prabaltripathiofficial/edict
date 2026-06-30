@@ -1,0 +1,16 @@
+{
+  "id": "high-value-order",
+  "description": "Flag paid orders worth at least 1000 and chain to ops notification.",
+  "collection": "orders",
+  "on": ["insert", "update", "replace"],
+  "when": {
+    "all": [
+      { "field": "status", "op": "eq", "value": "paid" },
+      { "field": "amount", "op": "gte", "value": 1000 }
+    ]
+  },
+  "actions": [
+    { "type": "log", "level": "info", "message": "high-value paid order detected" }
+  ],
+  "then": ["notify-ops-webhook"]
+}

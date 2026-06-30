@@ -1,0 +1,15 @@
+{
+  "id": "cancelled-order-cleanup",
+  "description": "Log when an order is cancelled so downstream cleanup can react.",
+  "collection": "orders",
+  "on": ["update", "replace"],
+  "when": {
+    "any": [
+      { "field": "status", "op": "eq", "value": "cancelled" },
+      { "field": "status", "op": "eq", "value": "refunded" }
+    ]
+  },
+  "actions": [
+    { "type": "log", "level": "warn", "message": "order cancelled or refunded" }
+  ]
+}

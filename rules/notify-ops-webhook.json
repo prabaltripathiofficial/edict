@@ -1,0 +1,13 @@
+{
+  "id": "notify-ops-webhook",
+  "description": "Post the change event to an ops endpoint. Chained from high-value-order.",
+  "collection": "orders",
+  "actions": [
+    {
+      "type": "webhook",
+      "url": "https://httpbin.org/post",
+      "method": "POST",
+      "headers": { "X-Edict-Source": "orders" }
+    }
+  ]
+}
