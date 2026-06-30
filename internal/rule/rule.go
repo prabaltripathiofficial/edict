@@ -74,9 +74,9 @@ type Rule struct {
 	Then []string `json:"then,omitempty"`
 }
 
-// matchesOperation reports whether the rule is interested in op. An empty On
+// MatchesOperation reports whether the rule is interested in op. An empty On
 // list means "any operation".
-func (r Rule) matchesOperation(op event.Operation) bool {
+func (r Rule) MatchesOperation(op event.Operation) bool {
 	if len(r.On) == 0 {
 		return true
 	}
